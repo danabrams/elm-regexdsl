@@ -4,10 +4,10 @@ import Regex exposing (..)
 
 
 myRegex =
-    characterClass 'a' 'z'
+    range 'a' 'z'
 
 
-characterClass from to =
+range from to =
     ()
 
 

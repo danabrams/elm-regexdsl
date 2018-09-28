@@ -8,9 +8,17 @@ import Test exposing (..)
 
 suite : Test
 suite =
-    test "hello!" <|
-        \() ->
-            RegexDSL.characterClass 'a' 'z'
-                |> RegexDSL.toRegex
-                |> RegexDSL.toString
-                |> Expect.equal "[a-z]"
+    describe "stuff"
+        [ test "range" <|
+            \() ->
+                RegexDSL.range 'a' 'z'
+                    |> RegexDSL.toRegex
+                    |> RegexDSL.toString
+                    |> Expect.equal "[a-z]"
+        , test "capital range" <|
+            \() ->
+                RegexDSL.range 'A' 'Z'
+                    |> RegexDSL.toRegex
+                    |> RegexDSL.toString
+                    |> Expect.equal "[A-Z]"
+        ]
